@@ -1,7 +1,6 @@
 import android.os { Bundle, AsyncTask }
 import android.app { ListActivity }
 import android.widget { ArrayAdapter, ListAdapter, TextView, EditText}
-import android.support.v7.app { AppCompatActivity }
 import android.view { KeyEvent }
 import android.view.inputmethod { EditorInfo }
 import ceylon.interop.java { createJavaStringArray }
@@ -46,22 +45,26 @@ shared class MainActivity() extends ListActivity() {
         super.onCreate(savedInstanceState);
         setContentView(R.Layout.activity_main);
 
-        assert (is EditText editText = findViewById(AndroidR.Id.subject));//AndroidR.Layout.subject);
+        assert (is EditText editText = findViewById(R.Id.subjectText));
         editText.setOnEditorActionListener(object satisfies TextView.OnEditorActionListener {
             shared actual Boolean onEditorAction(TextView v, Integer actionId, KeyEvent evt) {
                 Boolean handled;
-                if (actionId == EditorInfo.\iIME_ACTION_SEND) {
-                    LoadTitles().execute(
-                        "http://10.0.2.2:8084/titles/Tom Bentley");
+                if (actionId == EditorInfo.imeActionGo) {
+                    value url = "http://10.0.2.2:8084/titles/"+v.text.string;
+                    print("Background fetching " + url);
+                    LoadTitles().execute(url);
                     handled = true;
                 } else {
+                    print("Not handled");
                     handled = false;
                 }
                 return handled;
             }
         });
-            //LoadTitles().execute(
-             //   "http://10.0.2.2:8084/titles/Donald Trump",
-              //  "http://10.0.2.2:8084/titles/Hillary Clinton");
+
+        ListAdapter adapter = ArrayAdapter<JString>(this, AndroidR.Layout.simple_list_item_1,
+            createJavaStringArray(LinkedList<String>()));
+        this.listAdapter = adapter;
+
     }
 }

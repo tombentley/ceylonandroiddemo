@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Incredible Ceylon</string>
+    <string name="subject">Subject</string>
 </resources>

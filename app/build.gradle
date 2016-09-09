@@ -3,7 +3,7 @@ buildscript{
         jcenter()
     }
     dependencies{
-        classpath 'com.redhat.ceylon.gradle:android:0.0.4'
+        classpath 'com.redhat.ceylon.gradle:android:1.0.0'
     }
 }
 apply plugin: 'com.android.application'
@@ -12,7 +12,7 @@ apply plugin: 'com.redhat.ceylon.gradle.android'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.0"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.github.tombentley.ceylondemo"
