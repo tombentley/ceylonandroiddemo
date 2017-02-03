@@ -7,3 +7,11 @@ source=source
 
 [repositories]
 lookup=./build/intermediates/ceylon-android/repository
+
+[herd]
+hello=stef
+
+[defaults]
+offline=false
+flatclasspath=false
+autoexportmavendependencies=false
