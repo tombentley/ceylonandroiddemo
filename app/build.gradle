@@ -42,5 +42,5 @@ dependencies {
 }
 ceylon{
     module "com.github.tombentley.ceylondemo/1.0"
-    ceylonLocation "/home/tom/ceylon/ceylon/dist/dist/bin/ceylon"
+//    ceylonLocation "/home/tom/ceylon/ceylon/dist/dist/bin/ceylon"
 }
