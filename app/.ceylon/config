@@ -5,6 +5,9 @@ source=src/main/ceylon
 source=build/generated/source/r/debug
 source=source
 
+[compiler.jvm]
+target=7
+
 [repositories]
 lookup=./build/intermediates/ceylon-android/repository
 
